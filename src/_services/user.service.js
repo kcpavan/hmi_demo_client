@@ -30,9 +30,9 @@ function logout() {
     method: 'DELETE',
     headers: authHeader()
   };
+  localStorage.removeItem('user');
   return fetch(`${API_URL}/api/v1/auth`, requestOptions).then(handleResponse);
   // remove user from local storage to log user out
-  localStorage.removeItem('user');
 }
 
 function getAll() {
