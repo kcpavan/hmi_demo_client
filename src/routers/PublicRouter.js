@@ -5,14 +5,13 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export const PublicRoute = ({
-  isAuthenticated,
   component: Component,
   ...rest
 }) => (
 
 
     <Route {...rest} component={(props) => (
-      isAuthenticated ? (
+      localStorage.getItem('user') ? (
 
         <Redirect to="/home" />
 
@@ -32,7 +31,7 @@ export const PublicRoute = ({
   );
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: !!state.auth.uid
+  isAuthenticated: !!localStorage.getItem('user')
 });
 
 export default connect(mapStateToProps)(PublicRoute);

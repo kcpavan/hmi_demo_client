@@ -56,7 +56,6 @@ class Header extends React.Component {
 
   render() {
 
-    const { open } = this.state.componentsmenuopen;
     return (
       <div>
         <Drawer open={this.state.open} onClose={this.toggleDrawer(false)} >
@@ -98,14 +97,8 @@ class Header extends React.Component {
     );
   };
 }
-
-
-
-
-
-
 const mapStateToProps = (state) => ({
-  userid: state.auth.uid
+  userid: localStorage.getItem('user')
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

@@ -158,24 +158,7 @@ form{
     padding-top: 60px;
 }
 
-.loginbutton{
-
-position: relative;
-    padding: 8px 45px;
-    line-height: 30px;
-    overflow: hidden;
-    border-width: 0;
-    outline: none;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
-    background-color: #ff0077;
-    color: #ecf0f1;
-    transition: background-color .3s;
-}
-
-.logintypography{
-    color:white !important;
-}
+ 
 
 .homepagepaper{
 

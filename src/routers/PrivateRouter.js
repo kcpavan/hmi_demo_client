@@ -5,12 +5,11 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export const PrivateRoute = ({
-  isAuthenticated,
   component: Component,
   ...rest
 }) => (
     <Route {...rest} component={(props) => (
-      isAuthenticated ? (
+      localStorage.getItem('user') ? (
         <div>
           <Header />
           <div className="bodyComponent">
@@ -22,13 +21,13 @@ export const PrivateRoute = ({
           <Footer />
         </div>
       ) : (
-          <Redirect to="/" />
+          <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
         )
     )} />
   );
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: !!state.auth.uid
+  isAuthenticated: !!localStorage.getItem('user')
 });
 
 export default connect(mapStateToProps)(PrivateRoute);
