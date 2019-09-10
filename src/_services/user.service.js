@@ -11,7 +11,8 @@ function login(username, password) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password })
+    body: JSON.stringify({ 'email': username, 'password': password })
+    // body: JSON.stringify({ "user": { 'email': username, 'password': password } })
   };
 
   return fetch(`${API_URL}/api/v1/auth`, requestOptions)
