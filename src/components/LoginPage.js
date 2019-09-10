@@ -14,7 +14,7 @@ export class LoginPage extends React.Component {
     super(props);
 
     // reset login status
-    this.props.dispatch(userActions.logout());
+    // this.props.dispatch(userActions.logout());
 
     this.state = {
       username: '',
@@ -74,7 +74,7 @@ export class LoginPage extends React.Component {
               }
             </div>
           </form>
-          <Button variant="raised" color="primary" onClick={this.handleSubmit}><Typography variant="button" gutterBottom className="logintypography">
+          <Button variant="outlined" color="primary" onClick={this.handleSubmit}><Typography variant="button" gutterBottom className="logintypography">
             Login
       </Typography></Button>
         </Paper>

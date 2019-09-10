@@ -14,7 +14,7 @@ function login(username, password) {
     body: JSON.stringify({ username, password })
   };
 
-  return fetch(`${API_URL}/users/authenticate`, requestOptions)
+  return fetch(`${API_URL}/api/v1/auth`, requestOptions)
     .then(handleResponse)
     .then(user => {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -25,6 +25,11 @@ function login(username, password) {
 }
 
 function logout() {
+  const requestOptions = {
+    method: 'DELETE',
+    headers: authHeader()
+  };
+  return fetch(`${API_URL}/api/v1/auth`, requestOptions).then(handleResponse);
   // remove user from local storage to log user out
   localStorage.removeItem('user');
 }
@@ -35,7 +40,7 @@ function getAll() {
     headers: authHeader()
   };
 
-  return fetch(`${API_URL}/users`, requestOptions).then(handleResponse);
+  return fetch(`${API_URL}/api/v1/users`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

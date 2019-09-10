@@ -14,8 +14,7 @@ import { Link } from 'react-router-dom';
 import PublicNavList from '../navs/publicNav';
 import PrivateNavList from '../navs/privateNav';
 import ExpandNavList from '../navs/expandNavs'
-import { logout } from '../store/actions/auth';
-
+import { userActions } from '../_actions';
 
 class Header extends React.Component {
 
@@ -102,7 +101,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  startLogout: () => dispatch(logout())
+  startLogout: () => dispatch(userActions.logout())
 });
 
 
